@@ -8,4 +8,10 @@ export const emberekLISTA =[
     {nev: "Jenő",
     kor:32,
     nem:false},
+    {nev: "béla",
+    kor:13,
+    nem:false},
+    {nev: "Anna",
+    kor:42,
+    nem:true},
 ]

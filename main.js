@@ -1,4 +1,6 @@
 import { emberekLISTA } from "./adat.js";
+import { sorTorles, szuresNevSzerint, tablazatRendez } from "./adatKezelo.js";
+import { megjelenites, tablazatosszeallit } from "./fuggvenyek.js";
 
 /*jelenítsük meg az adatainkat egy tábéázatban az adatok divben,
     az urlap divben pedig legyen egy űrlap, amivel ilyen adatokat tudunk a táblázatba beletenni.
@@ -20,3 +22,41 @@ Milyen füfggvények kellenek?
     amelyekben szerepel a név mezőjében az adott szó. Ezután  megjelenítjük a szűrt listát az oldalon.
     Akkor fog lefutni, amikor megváltozik a szűrőmező tartalma
 */
+let nevIrany=1;
+init(emberekLISTA);
+nevRendezEsemeny();
+
+
+function init(lista) {
+    let txt = tablazatosszeallit(lista);
+    megjelenites(txt);
+    nevRendezEsemeny(lista);
+    sorTorles();
+}
+function nevRendezEsemeny(lista){
+    /* a táblázat név fejlécmezőjére kattintunk.
+    berendezzük a listát és megjelenítjük újra a táblázatot. 
+    */
+    const nevELEM=$(".adatok th").eq(0) /* első fejléc th elem */
+    nevELEM.on("click", function(){
+        const LISTA = tablazatRendez(lista, nevIrany)
+        console.log(LISTA)
+        nevIrany*=(-1)
+        init(LISTA);
+    })
+}
+const szuroELEM = $("#szNev")
+szuroELEM.on("keyup", function(){
+    let szurtSzoveg=szuroELEM.val()
+    const LISTA = szuresNevSzerint(emberekLISTA, szurtSzoveg)
+    init(LISTA)
+})
+function sorTorlesEsemeny(){
+    const kukaELEM=$(".kuka")
+    kukaELEM.on("click", function(event){
+        let index=event.target.id
+        const LISTA = sorTorles(emberekLISTA,index);
+        init(LISTA)
+    })
+
+}

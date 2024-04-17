@@ -39,6 +39,7 @@ const FERFIAK10FELETT = emberekLISTA.filter((ember)=>{
 //RENDEZÉS
 //  rendezzük fordított sorrendbe kor szerint az emereinket
 emberekLISTA.sort(function(e1,e2){
+    console.log(e1.kor, e2.kor, e1.kor-e2.kor)
     return e2.kor-e1.kor
 })
 console.log(emberekLISTA)
