@@ -27,11 +27,13 @@ init(emberekLISTA);
 nevRendezEsemeny();
 
 
-function init(lista) {
+
+export function init(lista) {
     let txt = tablazatosszeallit(lista);
     megjelenites(txt);
     nevRendezEsemeny(lista);
     sorTorles();
+    sorTorlesEsemeny()
 }
 function nevRendezEsemeny(lista){
     /* a táblázat név fejlécmezőjére kattintunk.
@@ -59,4 +61,4 @@ function sorTorlesEsemeny(){
         init(LISTA)
     })
 
-}
+} 

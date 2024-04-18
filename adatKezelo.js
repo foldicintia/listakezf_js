@@ -7,7 +7,8 @@ export function tablazatRendez(lista, irany) {
             return -1
         }    
         }*/
-        return e1.nev.toUpperCase()>e2.nev ? 1*irany : -1*irany; 
+       
+        return e1.nev.toUpperCase()>e2.nev.toUpperCase() ? 1*irany : -1*irany; 
     })
     return lista
 }
